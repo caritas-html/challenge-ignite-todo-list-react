@@ -1,5 +1,12 @@
+import { Header } from './components/Header';
+
 import './global.css';
+import styles from './App.module.css';
 
 export function App() {
-  return <h1>ToDo List</h1>;
+  return (
+    <div className={styles.wrapper}>
+      <Header />
+    </div>
+  );
 }
