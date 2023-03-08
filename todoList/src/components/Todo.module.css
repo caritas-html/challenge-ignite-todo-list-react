@@ -2,20 +2,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  flex-direction: column;
   height: 32px;
   margin-top: -1rem;
+  padding: 1rem;
+  gap: 1rem;
 }
 
-.wrapper input[type='text'] {
+.wrapper form input[type='text'] {
   background: var(--gray-500);
   color: var(--gray-300);
   height: 3.375rem;
   border-radius: 8px;
   padding: 1rem;
   border: none;
-  max-width: 600px;
-  width: 80vw;
+  width: 40rem;
+  max-width: 80vw;
 }
 
 .wrapper input[type='text']:focus {
@@ -23,21 +25,26 @@
   color: var(--gray-100);
 }
 
-.wrapper > button {
+.wrapper form > button {
+  display: inline-flex;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
   height: 3.375rem;
   width: 90px;
   border-radius: 8px;
   gap: 0.5rem;
   border: none;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: var(--blue-500);
   color: var(--gray-100);
   cursor: pointer;
 }
 
-.wrapper > button:hover {
+form > button:not(:disabled):hover {
   background: var(--blue-200);
+}
+
+form button[type='submit']:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
