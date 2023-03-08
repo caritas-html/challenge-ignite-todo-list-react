@@ -1,5 +1,5 @@
 import { PlusCircle } from 'phosphor-react';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
 import styles from './Todo.module.css';
 
@@ -11,8 +11,7 @@ interface Tasks {
 export function Todo() {
   const [tasks, setTasks] = useState<Tasks[]>([]);
   const [newTask, setNewTask] = useState('');
-
-  console.log('tasks', tasks);
+  const isNewTaskEmpty = newTask.length === 0;
 
   function handleNewTask(event: FormEvent) {
     event.preventDefault();
@@ -29,21 +28,26 @@ export function Todo() {
   }
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('');
     setNewTask(event.target.value);
+  }
+
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('Digite uma Task antes de Criar!');
   }
 
   return (
     <div className={styles.wrapper}>
       <form onSubmit={handleNewTask}>
         <input
-          name='task'
+          type='text'
           value={newTask}
           onChange={handleNewTaskChange}
-          type='text'
+          onInvalid={handleNewCommentInvalid}
           placeholder='Adicione uma nova tarefa'
           required
         />
-        <button>
+        <button type='submit' disabled={isNewTaskEmpty}>
           Criar
           <PlusCircle size={22} weight={'bold'} />
         </button>

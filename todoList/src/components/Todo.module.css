@@ -39,6 +39,11 @@
   cursor: pointer;
 }
 
-.wrapper form > button:hover {
+form > button:not(:disabled):hover {
   background: var(--blue-200);
+}
+
+form button[type='submit']:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
