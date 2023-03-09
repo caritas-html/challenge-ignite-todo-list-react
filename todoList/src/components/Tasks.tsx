@@ -24,9 +24,12 @@ export function Tasks() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus numquam fugit deleniti.
             </p>
-            <div className={styles.iconIndividualTask}>
+            <button
+              title='Excluir tarefa'
+              className={styles.iconIndividualTask}
+            >
               <Trash size={24} />
-            </div>
+            </button>
           </div>
           <div className={styles.individualTask}>
             <Checkbox.Root className={styles.checkboxRoot}>
@@ -36,9 +39,12 @@ export function Tasks() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus numquam fugit deleniti.
             </p>
-            <div className={styles.iconIndividualTask}>
+            <button
+              title='Excluir tarefa'
+              className={styles.iconIndividualTask}
+            >
               <Trash size={24} />
-            </div>
+            </button>
           </div>
         </div>
       </div>
