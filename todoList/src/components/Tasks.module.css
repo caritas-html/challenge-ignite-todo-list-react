@@ -21,13 +21,72 @@
   margin-bottom: 1rem;
 }
 
+.tasksCreated {
+  color: var(--blue-200);
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.tasksCreatedAmount {
+  background: var(--gray-500);
+  width: auto;
+  padding: 0.125rem 0.3125rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  color: var(--gray-200);
+}
+
+.tasksDone {
+  color: var(--purple-200);
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.tasksDoneAmount {
+  background: var(--gray-500);
+  width: auto;
+  padding: 2px 5px;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  color: var(--gray-200);
+}
+
+.wrapperIndividualTask {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .individualTask {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-evenly;
   gap: 1rem;
   background: var(--gray-500);
   border: none;
   border-radius: 8px;
   padding: 1rem;
+}
+
+.individualTask input[type='checkbox'] {
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.individualTask p {
+  color: var(--gray-100);
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.checkboxRoot {
+  min-width: 1rem;
+  min-height: 1rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: var(--gray-500);
+  border: var(--blue-200) 1px solid;
 }

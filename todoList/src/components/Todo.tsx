@@ -38,7 +38,7 @@ export function Todo() {
 
   return (
     <div className={styles.wrapper}>
-      <form onSubmit={handleNewTask}>
+      <form onSubmit={handleNewTask} className={styles.todoForm}>
         <input
           type='text'
           value={newTask}
