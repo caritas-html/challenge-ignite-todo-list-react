@@ -1,9 +1,16 @@
-import { Trash } from 'phosphor-react';
+import { Check, Trash } from 'phosphor-react';
 import * as Checkbox from '@radix-ui/react-checkbox';
 
 import styles from './Tasks.module.css';
+import { useState } from 'react';
 
 export function Tasks() {
+  const [taskChecked, setTaskChecked] = useState(false);
+
+  function handleCheck(check: boolean) {
+    setTaskChecked(check);
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -18,8 +25,16 @@ export function Tasks() {
         <div className={styles.wrapperIndividualTask}>
           <div className={styles.individualTask}>
             <div>
-              <Checkbox.Root className={styles.checkboxRoot}>
-                <Checkbox.Indicator />
+              <Checkbox.Root
+                checked={taskChecked}
+                onCheckedChange={handleCheck}
+                className={styles.checkboxRoot}
+              >
+                <div>
+                  <Checkbox.Indicator>
+                    <Check size={10} className={styles.checkIcon} />
+                  </Checkbox.Indicator>
+                </div>
               </Checkbox.Root>
             </div>
             <p>
@@ -35,8 +50,16 @@ export function Tasks() {
           </div>
           <div className={styles.individualTask}>
             <div>
-              <Checkbox.Root className={styles.checkboxRoot}>
-                <Checkbox.Indicator />
+              <Checkbox.Root
+                checked={taskChecked}
+                onCheckedChange={handleCheck}
+                className={styles.checkboxRoot}
+              >
+                <div>
+                  <Checkbox.Indicator>
+                    <Check size={10} className={styles.checkIcon} />
+                  </Checkbox.Indicator>
+                </div>
               </Checkbox.Root>
             </div>
             <p>

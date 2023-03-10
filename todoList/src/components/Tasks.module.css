@@ -78,6 +78,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 16px;
   height: 16px;
   border: 1px solid var(--blue-200);
@@ -87,6 +88,10 @@
 
 .checkboxRoot:hover {
   background: var(--blue-500);
+}
+
+.checkIcon {
+  color: var(--gray-100);
 }
 
 .iconIndividualTask {
