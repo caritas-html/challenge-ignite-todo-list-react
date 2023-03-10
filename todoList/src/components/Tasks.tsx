@@ -17,9 +17,11 @@ export function Tasks() {
         </div>
         <div className={styles.wrapperIndividualTask}>
           <div className={styles.individualTask}>
-            <Checkbox.Root className={styles.checkboxRoot}>
-              <Checkbox.Indicator className={styles.checkboxindicator} />
-            </Checkbox.Root>
+            <div>
+              <Checkbox.Root className={styles.checkboxRoot}>
+                <Checkbox.Indicator />
+              </Checkbox.Root>
+            </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus numquam fugit deleniti.
@@ -32,9 +34,11 @@ export function Tasks() {
             </button>
           </div>
           <div className={styles.individualTask}>
-            <Checkbox.Root className={styles.checkboxRoot}>
-              <Checkbox.Indicator />
-            </Checkbox.Root>
+            <div>
+              <Checkbox.Root className={styles.checkboxRoot}>
+                <Checkbox.Indicator />
+              </Checkbox.Root>
+            </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus numquam fugit deleniti.
