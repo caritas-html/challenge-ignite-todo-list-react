@@ -68,13 +68,6 @@
   padding: 1rem;
 }
 
-.individualTask input[type='checkbox'] {
-  display: flex;
-  width: 1rem;
-  height: 1rem;
-  cursor: pointer;
-}
-
 .individualTask p {
   color: var(--gray-100);
   font-weight: normal;
@@ -82,11 +75,37 @@
 }
 
 .checkboxRoot {
-  min-width: 1rem;
-  min-height: 1rem;
-  border-radius: 50%;
-  border: none;
   cursor: pointer;
-  background: var(--gray-500);
-  border: var(--blue-200) 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--blue-200);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.checkboxRoot:hover {
+  background: var(--blue-500);
+}
+
+.checkIcon {
+  color: var(--gray-100);
+}
+
+.iconIndividualTask {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--gray-300);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.iconIndividualTask:hover {
+  color: var(--red-200);
+  background: var(--gray-400);
 }

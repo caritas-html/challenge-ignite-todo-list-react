@@ -1,9 +1,16 @@
-import { Trash } from 'phosphor-react';
+import { Check, Trash } from 'phosphor-react';
 import * as Checkbox from '@radix-ui/react-checkbox';
 
 import styles from './Tasks.module.css';
+import { useState } from 'react';
 
 export function Tasks() {
+  const [taskChecked, setTaskChecked] = useState(false);
+
+  function handleCheck(check: boolean) {
+    setTaskChecked(check);
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -17,28 +24,54 @@ export function Tasks() {
         </div>
         <div className={styles.wrapperIndividualTask}>
           <div className={styles.individualTask}>
-            <Checkbox.Root className={styles.checkboxRoot}>
-              <Checkbox.Indicator className={styles.checkboxindicator} />
-            </Checkbox.Root>
+            <div>
+              <Checkbox.Root
+                checked={taskChecked}
+                onCheckedChange={handleCheck}
+                className={styles.checkboxRoot}
+              >
+                <div>
+                  <Checkbox.Indicator>
+                    <Check size={10} className={styles.checkIcon} />
+                  </Checkbox.Indicator>
+                </div>
+              </Checkbox.Root>
+            </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus numquam fugit deleniti.
             </p>
-            <div className={styles.iconIndividualTask}>
+            <button
+              title='Excluir tarefa'
+              className={styles.iconIndividualTask}
+            >
               <Trash size={24} />
-            </div>
+            </button>
           </div>
           <div className={styles.individualTask}>
-            <Checkbox.Root className={styles.checkboxRoot}>
-              <Checkbox.Indicator />
-            </Checkbox.Root>
+            <div>
+              <Checkbox.Root
+                checked={taskChecked}
+                onCheckedChange={handleCheck}
+                className={styles.checkboxRoot}
+              >
+                <div>
+                  <Checkbox.Indicator>
+                    <Check size={10} className={styles.checkIcon} />
+                  </Checkbox.Indicator>
+                </div>
+              </Checkbox.Root>
+            </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus numquam fugit deleniti.
             </p>
-            <div className={styles.iconIndividualTask}>
+            <button
+              title='Excluir tarefa'
+              className={styles.iconIndividualTask}
+            >
               <Trash size={24} />
-            </div>
+            </button>
           </div>
         </div>
       </div>
