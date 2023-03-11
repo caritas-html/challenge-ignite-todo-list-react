@@ -68,10 +68,15 @@
   padding: 1rem;
 }
 
-.individualTask p {
+.taskLabel {
   color: var(--gray-100);
   font-weight: normal;
   line-height: 1.4;
+}
+
+.checkboxChecked + .taskLabel {
+  text-decoration: line-through;
+  color: var(--gray-300);
 }
 
 .checkboxUnchecked,
@@ -80,7 +85,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
+  min-width: 16px;
   height: 16px;
   border-radius: 50%;
   border: none;

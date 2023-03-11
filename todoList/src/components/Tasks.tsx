@@ -24,27 +24,24 @@ export function Tasks() {
         </div>
         <div className={styles.wrapperIndividualTask}>
           <div className={styles.individualTask}>
-            <div>
-              <Checkbox.Root
-                checked={taskChecked}
-                onCheckedChange={handleCheck}
-                className={
-                  taskChecked
-                    ? styles.checkboxChecked
-                    : styles.checkboxUnchecked
-                }
-              >
-                <div>
-                  <Checkbox.Indicator>
-                    <Check size={10} className={styles.checkIcon} />
-                  </Checkbox.Indicator>
-                </div>
-              </Checkbox.Root>
-            </div>
-            <p>
+            <Checkbox.Root
+              checked={taskChecked}
+              onCheckedChange={handleCheck}
+              id='temporaly'
+              className={
+                taskChecked ? styles.checkboxChecked : styles.checkboxUnchecked
+              }
+            >
+              <div>
+                <Checkbox.Indicator>
+                  <Check size={10} className={styles.checkIcon} />
+                </Checkbox.Indicator>
+              </div>
+            </Checkbox.Root>
+            <label htmlFor='temporaly' className={styles.taskLabel}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus numquam fugit deleniti.
-            </p>
+            </label>
             <button
               title='Excluir tarefa'
               className={styles.iconIndividualTask}
@@ -53,27 +50,24 @@ export function Tasks() {
             </button>
           </div>
           <div className={styles.individualTask}>
-            <div>
-              <Checkbox.Root
-                checked={taskChecked}
-                onCheckedChange={handleCheck}
-                className={
-                  taskChecked
-                    ? styles.checkboxChecked
-                    : styles.checkboxUnchecked
-                }
-              >
-                <div>
-                  <Checkbox.Indicator>
-                    <Check size={10} className={styles.checkIcon} />
-                  </Checkbox.Indicator>
-                </div>
-              </Checkbox.Root>
-            </div>
-            <p>
+            <Checkbox.Root
+              checked={taskChecked}
+              onCheckedChange={handleCheck}
+              id='temporaly'
+              className={
+                taskChecked ? styles.checkboxChecked : styles.checkboxUnchecked
+              }
+            >
+              <div>
+                <Checkbox.Indicator>
+                  <Check size={10} className={styles.checkIcon} />
+                </Checkbox.Indicator>
+              </div>
+            </Checkbox.Root>
+            <label htmlFor='temporaly' className={styles.taskLabel}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus numquam fugit deleniti.
-            </p>
+            </label>
             <button
               title='Excluir tarefa'
               className={styles.iconIndividualTask}
