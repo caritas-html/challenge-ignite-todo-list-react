@@ -28,7 +28,11 @@ export function Tasks() {
               <Checkbox.Root
                 checked={taskChecked}
                 onCheckedChange={handleCheck}
-                className={styles.checkboxRoot}
+                className={
+                  taskChecked
+                    ? styles.checkboxChecked
+                    : styles.checkboxUnchecked
+                }
               >
                 <div>
                   <Checkbox.Indicator>
@@ -53,7 +57,11 @@ export function Tasks() {
               <Checkbox.Root
                 checked={taskChecked}
                 onCheckedChange={handleCheck}
-                className={styles.checkboxRoot}
+                className={
+                  taskChecked
+                    ? styles.checkboxChecked
+                    : styles.checkboxUnchecked
+                }
               >
                 <div>
                   <Checkbox.Indicator>
