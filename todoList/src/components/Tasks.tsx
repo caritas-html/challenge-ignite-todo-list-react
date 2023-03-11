@@ -1,11 +1,14 @@
 import { Check, Trash } from 'phosphor-react';
+import { useState } from 'react';
 import * as Checkbox from '@radix-ui/react-checkbox';
 
 import styles from './Tasks.module.css';
-import { useState } from 'react';
+import { NoTasks } from './NoTasks';
 
 export function Tasks() {
   const [taskChecked, setTaskChecked] = useState(false);
+  const tasks = 1;
+  const [teste, setTeste] = useState(0);
 
   function handleCheck(check: boolean) {
     setTaskChecked(check);
@@ -22,13 +25,19 @@ export function Tasks() {
             Concluídas <span className={styles.tasksDoneAmount}>2 de 5</span>
           </span>
         </div>
-        <div className={styles.wrapperIndividualTask}>
-          <div className={styles.individualTask}>
-            <div>
+
+        {teste > 0 ? (
+          <div className={styles.wrapperIndividualTask}>
+            <div className={styles.individualTask}>
               <Checkbox.Root
                 checked={taskChecked}
                 onCheckedChange={handleCheck}
-                className={styles.checkboxRoot}
+                id='temporaly'
+                className={
+                  taskChecked
+                    ? styles.checkboxChecked
+                    : styles.checkboxUnchecked
+                }
               >
                 <div>
                   <Checkbox.Indicator>
@@ -36,24 +45,27 @@ export function Tasks() {
                   </Checkbox.Indicator>
                 </div>
               </Checkbox.Root>
+              <label htmlFor='temporaly' className={styles.taskLabel}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus numquam fugit deleniti.
+              </label>
+              <button
+                title='Excluir tarefa'
+                className={styles.iconIndividualTask}
+              >
+                <Trash size={24} />
+              </button>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Necessitatibus numquam fugit deleniti.
-            </p>
-            <button
-              title='Excluir tarefa'
-              className={styles.iconIndividualTask}
-            >
-              <Trash size={24} />
-            </button>
-          </div>
-          <div className={styles.individualTask}>
-            <div>
+            <div className={styles.individualTask}>
               <Checkbox.Root
                 checked={taskChecked}
                 onCheckedChange={handleCheck}
-                className={styles.checkboxRoot}
+                id='temporaly'
+                className={
+                  taskChecked
+                    ? styles.checkboxChecked
+                    : styles.checkboxUnchecked
+                }
               >
                 <div>
                   <Checkbox.Indicator>
@@ -61,19 +73,21 @@ export function Tasks() {
                   </Checkbox.Indicator>
                 </div>
               </Checkbox.Root>
+              <label htmlFor='temporaly' className={styles.taskLabel}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus numquam fugit deleniti.
+              </label>
+              <button
+                title='Excluir tarefa'
+                className={styles.iconIndividualTask}
+              >
+                <Trash size={24} />
+              </button>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Necessitatibus numquam fugit deleniti.
-            </p>
-            <button
-              title='Excluir tarefa'
-              className={styles.iconIndividualTask}
-            >
-              <Trash size={24} />
-            </button>
           </div>
-        </div>
+        ) : (
+          <NoTasks />
+        )}
       </div>
     </div>
   );
