@@ -1,18 +1,10 @@
-import { Check, Trash } from 'phosphor-react';
-import { useState } from 'react';
-import * as Checkbox from '@radix-ui/react-checkbox';
+import { NoTasks } from './NoTasks';
+import { IndividualTask } from './IndividualTask';
 
 import styles from './Tasks.module.css';
-import { NoTasks } from './NoTasks';
 
 export function Tasks() {
-  const [taskChecked, setTaskChecked] = useState(false);
-  const tasks = 1;
-  const [teste, setTeste] = useState(0);
-
-  function handleCheck(check: boolean) {
-    setTaskChecked(check);
-  }
+  const teste = 1;
 
   return (
     <div className={styles.container}>
@@ -26,68 +18,9 @@ export function Tasks() {
           </span>
         </div>
 
-        {teste > 0 ? (
-          <div className={styles.wrapperIndividualTask}>
-            <div className={styles.individualTask}>
-              <Checkbox.Root
-                checked={taskChecked}
-                onCheckedChange={handleCheck}
-                id='temporaly'
-                className={
-                  taskChecked
-                    ? styles.checkboxChecked
-                    : styles.checkboxUnchecked
-                }
-              >
-                <div>
-                  <Checkbox.Indicator>
-                    <Check size={10} className={styles.checkIcon} />
-                  </Checkbox.Indicator>
-                </div>
-              </Checkbox.Root>
-              <label htmlFor='temporaly' className={styles.taskLabel}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Necessitatibus numquam fugit deleniti.
-              </label>
-              <button
-                title='Excluir tarefa'
-                className={styles.iconIndividualTask}
-              >
-                <Trash size={24} />
-              </button>
-            </div>
-            <div className={styles.individualTask}>
-              <Checkbox.Root
-                checked={taskChecked}
-                onCheckedChange={handleCheck}
-                id='temporaly'
-                className={
-                  taskChecked
-                    ? styles.checkboxChecked
-                    : styles.checkboxUnchecked
-                }
-              >
-                <div>
-                  <Checkbox.Indicator>
-                    <Check size={10} className={styles.checkIcon} />
-                  </Checkbox.Indicator>
-                </div>
-              </Checkbox.Root>
-              <label htmlFor='temporaly' className={styles.taskLabel}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Necessitatibus numquam fugit deleniti.
-              </label>
-              <button
-                title='Excluir tarefa'
-                className={styles.iconIndividualTask}
-              >
-                <Trash size={24} />
-              </button>
-            </div>
-          </div>
-        ) : (
-          <NoTasks />
-        )}
+        <div className={styles.wrapperIndividualTask}>
+          {teste > 0 ? <IndividualTask /> : <NoTasks />}
+        </div>
       </div>
     </div>
   );
