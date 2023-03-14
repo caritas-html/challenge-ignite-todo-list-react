@@ -9,11 +9,32 @@ export interface TaskType {
   completed: boolean;
 }
 
-interface TaskProps {
-  tasks: TaskType;
-}
+const tasks: TaskType[] = [
+  {
+    id: 1,
+    task: 'Acordar cedo.',
+    completed: true,
+  },
+  {
+    id: 2,
+    task: 'Tomar Água',
+    completed: false,
+  },
+  {
+    id: 3,
+    task: 'Ler',
+    completed: false,
+  },
+  {
+    id: 4,
+    task: 'Estudar ReactJs',
+    completed: true,
+  },
+];
 
-export function Tasks({ tasks }: TaskProps) {
+export function Tasks() {
+  console.log(tasks);
+
   const teste = 1;
 
   return (
@@ -29,7 +50,17 @@ export function Tasks({ tasks }: TaskProps) {
         </div>
 
         <div className={styles.wrapperIndividualTask}>
-          {teste > 0 ? <IndividualTask /> : <NoTasks />}
+          {tasks.map((task) => {
+            return (
+              <IndividualTask
+                key={task.id}
+                id={task.id}
+                task={task.task}
+                completed={task.completed}
+              />
+            );
+          })}
+          {/* {teste > 0 ? <IndividualTask /> : <NoTasks />} */}
         </div>
       </div>
     </div>
