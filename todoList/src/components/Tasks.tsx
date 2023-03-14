@@ -2,6 +2,7 @@ import { NoTasks } from './NoTasks';
 import { IndividualTask } from './IndividualTask';
 
 import styles from './Tasks.module.css';
+import { Todo } from './Todo';
 
 export interface TaskType {
   id: number;
@@ -36,30 +37,34 @@ export function Tasks() {
   const teste = 1;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <div className={styles.tasksNumbers}>
-          <span className={styles.tasksCreated}>
-            Tarefas Criadas <span className={styles.tasksCreatedAmount}>5</span>
-          </span>
-          <span className={styles.tasksDone}>
-            Concluídas <span className={styles.tasksDoneAmount}>2 de 5</span>
-          </span>
-        </div>
+    <>
+      <Todo />
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
+          <div className={styles.tasksNumbers}>
+            <span className={styles.tasksCreated}>
+              Tarefas Criadas{' '}
+              <span className={styles.tasksCreatedAmount}>5</span>
+            </span>
+            <span className={styles.tasksDone}>
+              Concluídas <span className={styles.tasksDoneAmount}>2 de 5</span>
+            </span>
+          </div>
 
-        <div className={styles.wrapperIndividualTask}>
-          {tasks.map((task) => {
-            return (
-              <IndividualTask
-                key={task.id}
-                id={task.id}
-                task={task.task}
-                completed={task.completed}
-              />
-            );
-          })}
+          <div className={styles.wrapperIndividualTask}>
+            {tasks.map((task) => {
+              return (
+                <IndividualTask
+                  key={task.id}
+                  id={task.id}
+                  task={task.task}
+                  completed={task.completed}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
