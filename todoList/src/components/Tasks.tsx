@@ -33,8 +33,6 @@ const tasks: TaskType[] = [
 ];
 
 export function Tasks() {
-  console.log(tasks);
-
   const teste = 1;
 
   return (
