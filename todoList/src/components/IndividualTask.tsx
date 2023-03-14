@@ -14,26 +14,30 @@ export function IndividualTask({ id, task, completed }: TaskType) {
 
   return (
     <div className={styles.individualTask}>
-      <Checkbox.Root
-        checked={taskChecked}
-        onCheckedChange={handleCheck}
-        id='temporaly'
-        className={
-          taskChecked ? styles.checkboxChecked : styles.checkboxUnchecked
-        }
-      >
-        <div>
-          <Checkbox.Indicator>
-            <Check size={10} className={styles.checkIcon} />
-          </Checkbox.Indicator>
-        </div>
-      </Checkbox.Root>
-      <label htmlFor='temporaly' className={styles.taskLabel}>
-        {task}
-      </label>
-      <button title='Excluir tarefa' className={styles.iconIndividualTask}>
-        <Trash size={24} />
-      </button>
+      <div className={styles.wrapperCheckAndLabel}>
+        <Checkbox.Root
+          checked={taskChecked}
+          onCheckedChange={handleCheck}
+          id='temporaly'
+          className={
+            taskChecked ? styles.checkboxChecked : styles.checkboxUnchecked
+          }
+        >
+          <div>
+            <Checkbox.Indicator>
+              <Check size={10} className={styles.checkIcon} />
+            </Checkbox.Indicator>
+          </div>
+        </Checkbox.Root>
+        <label htmlFor='temporaly' className={styles.taskLabel}>
+          {task}
+        </label>
+      </div>
+      <div>
+        <button title='Excluir tarefa' className={styles.iconIndividualTask}>
+          <Trash size={24} />
+        </button>
+      </div>
     </div>
   );
 }
