@@ -3,7 +3,17 @@ import { IndividualTask } from './IndividualTask';
 
 import styles from './Tasks.module.css';
 
-export function Tasks() {
+export interface TaskType {
+  id: number;
+  task: string;
+  completed: boolean;
+}
+
+interface TaskProps {
+  tasks: TaskType;
+}
+
+export function Tasks({ tasks }: TaskProps) {
   const teste = 1;
 
   return (
