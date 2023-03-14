@@ -3,6 +3,35 @@ import { IndividualTask } from './IndividualTask';
 
 import styles from './Tasks.module.css';
 
+export interface TaskType {
+  id: number;
+  task: string;
+  completed: boolean;
+}
+
+const tasks: TaskType[] = [
+  {
+    id: 1,
+    task: 'Acordar cedo.',
+    completed: true,
+  },
+  {
+    id: 2,
+    task: 'Tomar Água',
+    completed: false,
+  },
+  {
+    id: 3,
+    task: 'Ler',
+    completed: false,
+  },
+  {
+    id: 4,
+    task: 'Estudar ReactJs',
+    completed: true,
+  },
+];
+
 export function Tasks() {
   const teste = 1;
 
@@ -19,7 +48,17 @@ export function Tasks() {
         </div>
 
         <div className={styles.wrapperIndividualTask}>
-          {teste > 0 ? <IndividualTask /> : <NoTasks />}
+          {tasks.map((task) => {
+            return (
+              <IndividualTask
+                key={task.id}
+                id={task.id}
+                task={task.task}
+                completed={task.completed}
+              />
+            );
+          })}
+          {/* {teste > 0 ? <IndividualTask /> : <NoTasks />} */}
         </div>
       </div>
     </div>
