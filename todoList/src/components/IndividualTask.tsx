@@ -3,8 +3,9 @@ import * as Checkbox from '@radix-ui/react-checkbox';
 import { Check, Trash } from 'phosphor-react';
 
 import styles from './IndividualTask.module.css';
+import { TaskType } from './Tasks';
 
-export function IndividualTask() {
+export function IndividualTask({ id, task, completed }: TaskType) {
   const [taskChecked, setTaskChecked] = useState(false);
 
   function handleCheck(check: boolean) {
@@ -28,8 +29,7 @@ export function IndividualTask() {
         </div>
       </Checkbox.Root>
       <label htmlFor='temporaly' className={styles.taskLabel}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-        numquam fugit deleniti.
+        {task}
       </label>
       <button title='Excluir tarefa' className={styles.iconIndividualTask}>
         <Trash size={24} />

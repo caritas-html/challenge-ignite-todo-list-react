@@ -58,7 +58,6 @@ export function Tasks() {
               />
             );
           })}
-          {/* {teste > 0 ? <IndividualTask /> : <NoTasks />} */}
         </div>
       </div>
     </div>
