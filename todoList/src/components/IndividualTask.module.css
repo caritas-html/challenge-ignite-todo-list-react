@@ -1,12 +1,18 @@
 .individualTask {
   display: flex;
   align-items: center;
-  justify-content: baseline;
+  justify-content: space-between;
   gap: 1rem;
   background: var(--gray-500);
   border: none;
   border-radius: 8px;
   padding: 1rem;
+}
+
+.wrapperCheckAndLabel {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .taskLabel {
