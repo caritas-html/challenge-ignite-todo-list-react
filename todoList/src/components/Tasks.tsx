@@ -3,6 +3,7 @@ import { IndividualTask } from './IndividualTask';
 
 import styles from './Tasks.module.css';
 import { Todo } from './Todo';
+import { useState } from 'react';
 
 export interface TaskType {
   id: number;
@@ -34,11 +35,11 @@ const tasks: TaskType[] = [
 ];
 
 export function Tasks() {
-  const teste = 1;
+  const [tasks, setTasks] = useState<TaskType[]>([]);
 
   return (
     <>
-      <Todo />
+      <Todo tasks={tasks} setTasks={setTasks} />
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.tasksNumbers}>
@@ -52,16 +53,20 @@ export function Tasks() {
           </div>
 
           <div className={styles.wrapperIndividualTask}>
-            {tasks.map((task) => {
-              return (
-                <IndividualTask
-                  key={task.id}
-                  id={task.id}
-                  task={task.task}
-                  completed={task.completed}
-                />
-              );
-            })}
+            {tasks.length === 0 ? (
+              <NoTasks />
+            ) : (
+              tasks.map((task) => {
+                return (
+                  <IndividualTask
+                    key={task.id}
+                    id={task.id}
+                    task={task.task}
+                    completed={task.completed}
+                  />
+                );
+              })
+            )}
           </div>
         </div>
       </div>

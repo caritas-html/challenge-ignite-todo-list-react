@@ -1,15 +1,15 @@
 import { PlusCircle } from 'phosphor-react';
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import { TaskType } from './Tasks';
 
 import styles from './Todo.module.css';
 
-interface Tasks {
-  id: number;
-  content: string;
+interface TasksProps {
+  tasks: TaskType[];
+  setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>;
 }
 
-export function Todo() {
-  const [tasks, setTasks] = useState<Tasks[]>([]);
+export function Todo({ tasks, setTasks }: TasksProps) {
   const [newTask, setNewTask] = useState('');
   const isNewTaskEmpty = newTask.length === 0;
 
@@ -20,7 +20,8 @@ export function Todo() {
       ...tasks,
       {
         id: tasks.length + 1,
-        content: newTask,
+        task: newTask,
+        completed: false,
       },
     ]);
 
