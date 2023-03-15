@@ -7,6 +7,7 @@
   border: none;
   border-radius: 8px;
   padding: 1rem;
+  word-break: break-all;
 }
 
 .wrapperCheckAndLabel {
