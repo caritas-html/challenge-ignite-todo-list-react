@@ -37,6 +37,25 @@ const tasks: TaskType[] = [
 export function Tasks() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
 
+  function handleCheck(taskToUnched: number) {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === taskToUnched) {
+          task.completed = !task.completed;
+        }
+        return task;
+      })
+    );
+  }
+
+  function handleDelete(taskToDelete: number) {
+    const taskWithouDeletedOne = tasks.filter((task) => {
+      return task.id !== taskToDelete;
+    });
+
+    setTasks(taskWithouDeletedOne);
+  }
+
   return (
     <>
       <Todo tasks={tasks} setTasks={setTasks} />
@@ -63,6 +82,8 @@ export function Tasks() {
                     id={task.id}
                     task={task.task}
                     completed={task.completed}
+                    onCheck={handleCheck}
+                    onDelete={handleDelete}
                   />
                 );
               })
