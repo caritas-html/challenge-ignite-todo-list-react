@@ -5,22 +5,38 @@ import { Check, Trash } from 'phosphor-react';
 import styles from './IndividualTask.module.css';
 import { TaskType } from './Tasks';
 
-export function IndividualTask({ id, task, completed }: TaskType) {
-  const [taskChecked, setTaskChecked] = useState(false);
+interface IndividualTaskProps {
+  id: number;
+  task: string;
+  completed: boolean;
+  onCheck: (id: number) => void;
+  onDelete: (id: number) => void;
+}
 
-  function handleCheck(check: boolean) {
-    setTaskChecked(check);
+export function IndividualTask({
+  id,
+  task,
+  completed,
+  onCheck,
+  onDelete,
+}: IndividualTaskProps) {
+  function handleCheck() {
+    onCheck(id);
+  }
+
+  function handleDelete() {
+    onDelete(id);
   }
 
   return (
     <div className={styles.individualTask}>
       <div className={styles.wrapperCheckAndLabel}>
         <Checkbox.Root
-          checked={taskChecked}
+          checked={completed}
           onCheckedChange={handleCheck}
-          id='temporaly'
+          id={id.toString()}
           className={
-            taskChecked ? styles.checkboxChecked : styles.checkboxUnchecked
+            completed ? styles.checkboxChecked : styles.checkboxUnchecked
           }
         >
           <div>
@@ -29,12 +45,16 @@ export function IndividualTask({ id, task, completed }: TaskType) {
             </Checkbox.Indicator>
           </div>
         </Checkbox.Root>
-        <label htmlFor='temporaly' className={styles.taskLabel}>
+        <label htmlFor={id.toString()} className={styles.taskLabel}>
           {task}
         </label>
       </div>
       <div>
-        <button title='Excluir tarefa' className={styles.iconIndividualTask}>
+        <button
+          title='Excluir tarefa'
+          className={styles.iconIndividualTask}
+          onClick={handleDelete}
+        >
           <Trash size={24} />
         </button>
       </div>
