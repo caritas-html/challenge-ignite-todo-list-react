@@ -11,29 +11,6 @@ export interface TaskType {
   completed: boolean;
 }
 
-const tasks: TaskType[] = [
-  {
-    id: 1,
-    task: 'Acordar cedo.',
-    completed: true,
-  },
-  {
-    id: 2,
-    task: 'Tomar Água',
-    completed: false,
-  },
-  {
-    id: 3,
-    task: 'Ler',
-    completed: false,
-  },
-  {
-    id: 4,
-    task: 'Estudar ReactJs',
-    completed: true,
-  },
-];
-
 export function Tasks() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
   const amountOfTasks = tasks.length;
