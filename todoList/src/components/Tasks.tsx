@@ -16,6 +16,25 @@ export function Tasks() {
   const amountOfTasks = tasks.length;
   const amountOfTasksCompleted = tasks.filter((task) => task.completed).length;
 
+  function handleCreateTask(newTask: string) {
+    setTasks([
+      ...tasks,
+      {
+        id: tasks.length + 1,
+        task: newTask,
+        completed: false,
+      },
+    ]);
+  }
+
+  function handleDelete(taskToDelete: number) {
+    const taskWithouDeletedOne = tasks.filter((task) => {
+      return task.id !== taskToDelete;
+    });
+
+    setTasks(taskWithouDeletedOne);
+  }
+
   function handleCheck(taskToUnched: number) {
     setTasks(
       tasks.map((task) => {
@@ -27,17 +46,9 @@ export function Tasks() {
     );
   }
 
-  function handleDelete(taskToDelete: number) {
-    const taskWithouDeletedOne = tasks.filter((task) => {
-      return task.id !== taskToDelete;
-    });
-
-    setTasks(taskWithouDeletedOne);
-  }
-
   return (
     <>
-      <Todo tasks={tasks} setTasks={setTasks} />
+      <Todo onCreateTask={handleCreateTask} />
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.tasksNumbers}>

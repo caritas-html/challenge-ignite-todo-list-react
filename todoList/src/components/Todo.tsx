@@ -1,29 +1,20 @@
 import { PlusCircle } from 'phosphor-react';
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
-import { TaskType } from './Tasks';
 
 import styles from './Todo.module.css';
 
 interface TasksProps {
-  tasks: TaskType[];
-  setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>;
+  onCreateTask: (newTask: string) => void;
 }
 
-export function Todo({ tasks, setTasks }: TasksProps) {
+export function Todo({ onCreateTask }: TasksProps) {
   const [newTask, setNewTask] = useState('');
   const isNewTaskEmpty = newTask.length === 0;
 
-  function handleNewTask(event: FormEvent) {
+  function handleCreateTask(event: FormEvent) {
     event.preventDefault();
 
-    setTasks([
-      ...tasks,
-      {
-        id: tasks.length + 1,
-        task: newTask,
-        completed: false,
-      },
-    ]);
+    onCreateTask(newTask);
 
     setNewTask('');
   }
@@ -39,7 +30,7 @@ export function Todo({ tasks, setTasks }: TasksProps) {
 
   return (
     <div className={styles.wrapper}>
-      <form onSubmit={handleNewTask} className={styles.todoForm}>
+      <form onSubmit={handleCreateTask} className={styles.todoForm}>
         <input
           type='text'
           value={newTask}
