@@ -31,20 +31,22 @@ export function IndividualTask({
   return (
     <div className={styles.individualTask}>
       <div className={styles.wrapperCheckAndLabel}>
-        <Checkbox.Root
-          checked={completed}
-          onCheckedChange={handleCheck}
-          id={id.toString()}
-          className={
-            completed ? styles.checkboxChecked : styles.checkboxUnchecked
-          }
-        >
-          <div>
-            <Checkbox.Indicator>
-              <Check size={10} className={styles.checkIcon} />
-            </Checkbox.Indicator>
-          </div>
-        </Checkbox.Root>
+        <div className={styles.checkboxRoot}>
+          <Checkbox.Root
+            checked={completed}
+            onCheckedChange={handleCheck}
+            id={id.toString()}
+            className={
+              completed ? styles.checkboxChecked : styles.checkboxUnchecked
+            }
+          >
+            <div>
+              <Checkbox.Indicator>
+                <Check size={10} className={styles.checkIcon} />
+              </Checkbox.Indicator>
+            </div>
+          </Checkbox.Root>
+        </div>
         <label htmlFor={id.toString()} className={styles.taskLabel}>
           {task}
         </label>

@@ -1,6 +1,6 @@
 .individualTask {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   gap: 1rem;
   background: var(--gray-500);
@@ -10,10 +10,19 @@
   word-break: break-all;
 }
 
+.checkboxRoot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.203rem;
+}
+
 .wrapperCheckAndLabel {
   display: flex;
   gap: 1rem;
-  align-items: center;
+  vertical-align: text-top;
 }
 
 .taskLabel {
