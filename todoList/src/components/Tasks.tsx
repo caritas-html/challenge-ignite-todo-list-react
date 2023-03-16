@@ -11,31 +11,10 @@ export interface TaskType {
   completed: boolean;
 }
 
-const tasks: TaskType[] = [
-  {
-    id: 1,
-    task: 'Acordar cedo.',
-    completed: true,
-  },
-  {
-    id: 2,
-    task: 'Tomar Água',
-    completed: false,
-  },
-  {
-    id: 3,
-    task: 'Ler',
-    completed: false,
-  },
-  {
-    id: 4,
-    task: 'Estudar ReactJs',
-    completed: true,
-  },
-];
-
 export function Tasks() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
+  const amountOfTasks = tasks.length;
+  const amountOfTasksCompleted = tasks.filter((task) => task.completed).length;
 
   function handleCheck(taskToUnched: number) {
     setTasks(
@@ -64,10 +43,13 @@ export function Tasks() {
           <div className={styles.tasksNumbers}>
             <span className={styles.tasksCreated}>
               Tarefas Criadas{' '}
-              <span className={styles.tasksCreatedAmount}>5</span>
+              <span className={styles.tasksCreatedAmount}>{amountOfTasks}</span>
             </span>
             <span className={styles.tasksDone}>
-              Concluídas <span className={styles.tasksDoneAmount}>2 de 5</span>
+              Concluídas{' '}
+              <span
+                className={styles.tasksDoneAmount}
+              >{`${amountOfTasksCompleted} de ${amountOfTasks}`}</span>
             </span>
           </div>
 
