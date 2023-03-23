@@ -7,28 +7,18 @@
   border: none;
   border-radius: 8px;
   padding: 1rem;
-  word-break: break-all;
-}
-
-.checkboxRoot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0.203rem;
 }
 
 .wrapperCheckAndLabel {
   display: flex;
   gap: 1rem;
-  vertical-align: text-top;
 }
 
 .taskLabel {
   color: var(--gray-100);
   font-weight: normal;
   line-height: 1.4;
+  word-break: break-all;
 }
 
 .checkboxChecked + .taskLabel {

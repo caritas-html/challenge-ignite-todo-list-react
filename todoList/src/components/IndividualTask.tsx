@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import * as Checkbox from '@radix-ui/react-checkbox';
-import { Check, Trash } from 'phosphor-react';
+import { useState } from 'react'
+import * as Checkbox from '@radix-ui/react-checkbox'
+import { Check, Trash } from 'phosphor-react'
 
-import styles from './IndividualTask.module.css';
-import { TaskType } from './Tasks';
+import styles from './IndividualTask.module.css'
+import { TaskType } from './Tasks'
 
 interface IndividualTaskProps {
-  id: number;
-  task: string;
-  completed: boolean;
-  onCheck: (id: number) => void;
-  onDelete: (id: number) => void;
+  id: number
+  task: string
+  completed: boolean
+  onCheck: (id: number) => void
+  onDelete: (id: number) => void
 }
 
 export function IndividualTask({
@@ -21,39 +21,37 @@ export function IndividualTask({
   onDelete,
 }: IndividualTaskProps) {
   function handleCheck() {
-    onCheck(id);
+    onCheck(id)
   }
 
   function handleDelete() {
-    onDelete(id);
+    onDelete(id)
   }
 
   return (
     <div className={styles.individualTask}>
       <div className={styles.wrapperCheckAndLabel}>
-        <div className={styles.checkboxRoot}>
-          <Checkbox.Root
-            checked={completed}
-            onCheckedChange={handleCheck}
-            id={id.toString()}
-            className={
-              completed ? styles.checkboxChecked : styles.checkboxUnchecked
-            }
-          >
-            <div>
-              <Checkbox.Indicator>
-                <Check size={10} className={styles.checkIcon} />
-              </Checkbox.Indicator>
-            </div>
-          </Checkbox.Root>
-        </div>
+        <Checkbox.Root
+          checked={completed}
+          onCheckedChange={handleCheck}
+          id={id.toString()}
+          className={
+            completed ? styles.checkboxChecked : styles.checkboxUnchecked
+          }
+        >
+          <div>
+            <Checkbox.Indicator>
+              <Check size={10} className={styles.checkIcon} />
+            </Checkbox.Indicator>
+          </div>
+        </Checkbox.Root>
         <label htmlFor={id.toString()} className={styles.taskLabel}>
           {task}
         </label>
       </div>
       <div>
         <button
-          title='Excluir tarefa'
+          title="Excluir tarefa"
           className={styles.iconIndividualTask}
           onClick={handleDelete}
         >
@@ -61,5 +59,5 @@ export function IndividualTask({
         </button>
       </div>
     </div>
-  );
+  )
 }
