@@ -64,7 +64,7 @@ Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figm
 
 1. Clone o repositório
 ```sh
-https://github.com/florencioMath/Challenge-Ignite-TodoList.git
+https://github.com/florencioMath/challenge-ignite-todo-list-react.git
 ```
 2. Entre na pasta e instale as dependências
 ```sh
